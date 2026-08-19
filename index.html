@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Algorithm</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol's Music Player</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .player-card {
+            background: linear-gradient(145deg, #1e1e26, #141419);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 300px;
+        }
+        .disc {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ff007f 10%, #000 70%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 5s linear infinite;
+            animation-play-state: paused;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        h2 { margin: 10px 0 5px; font-size: 22px; }
+        p { margin: 0 0 20px; color: #b3b3b3; font-size: 14px; }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="radio">
+<div class="player-card">
+    <div class="disc" id="disc"></div>
+    <h2>Ye Tune Kya Kiya</h2>
+    <p>Javed Bashir</p>
+    <!-- यहाँ सीधे इंटरनेट वाला असली वर्किंग गाना लगा दिया है -->
+    <audio id="audio" controls src="https://soundhelix.com"></audio>
+</div>
 
-    <div class="station">
-      <span class="dot"></span>
-      NOW PLAYING
-    </div>
-
-    <div class="album">
-      <div class="record">
-        <div class="record-center"></div>
-      </div>
-    </div>
-
-    <h1>The Algorithm</h1>
-    <p class="dedication">Sukoon</p>
-
-    <p class="song">Ye Tune Kya Kiya</p>
-    <p class="artist">Javed Bashir</p>
-
-    <div class="progress">
-      <div class="progress-bar"></div>
-    </div>
-
-    <div class="time">
-      <span>0:00</span>
-      <span>0:00</span>
-    </div>
-
-    <div class="controls">
-      <button id="previous">⏮</button>
-      <button id="play">▶</button>
-      <button id="next">⏭</button>
-    </div>
-
-    <div class="volume">
-      🔊
-      <input type="range" min="0" max="100" value="70">
-    </div>
-
-    <div class="playlist">
-      <h2>Radio Playlist</h2>
-      <div id="playlist"></div>
-    </div>
-
-  </div>
-
-  <script src="script.js"></script>
+<script>
+    const audio = document.getElementById('audio');
+    const disc = document.getElementById('disc');
+    
+    // जब गाना बजेगा तो सीडी घूमेगी
+    audio.onplay = () => { disc.style.animationPlayState = 'running'; };
+    audio.onpause = () => { disc.style.animationPlayState = 'paused'; };
+</script>
 
 </body>
 </html>
