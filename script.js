@@ -1,5 +1,5 @@
 let songs = [
-    { title: "Ye Tune Kya Kiya", artist: "Javed Bashir", audio: "Once_Upon_A_Time_In_Mumbai_Dobaara_-_Ye_Tune_Kya_Kiya_Javed_Bashir_(mp3.pm).mp3" }
+    { title: "Ye Tune Kya Kiya", artist: "Javed Bashir", audio: "https://soundhelix.com" }
 ];
 
 let currentSongIndex = 0;
